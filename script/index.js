@@ -1,4 +1,5 @@
-document.getElementById('nameForm').addEventListener('submit', async function (e) {
+document.getElementById('nameForm')
+    .addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const name = document.getElementById('nameInput').value;
