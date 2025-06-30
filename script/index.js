@@ -1,3 +1,4 @@
+//POST - requestBody
 document.getElementById('nameForm')
     .addEventListener('submit', async function (e) {
     e.preventDefault();
