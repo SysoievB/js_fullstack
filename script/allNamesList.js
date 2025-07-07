@@ -1,7 +1,7 @@
 // allNamesList.js - Load and display all names when page loads
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
-        const response = await fetch('http://localhost:8080/api', {
+        const response = await fetch('http://localhost:8080/api/names/all', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,35 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const ul = document.createElement('ul');
                 namesList.forEach(name => {
                     const li = document.createElement('li');
-                    li.textContent = name;
+                    const updateButton = document.createElement('button');
+                    const removeButton = document.createElement('button');
+                    // Set button text
+                    updateButton.textContent = 'Update';
+                    updateButton.style.cssText = `
+                       backgroundColor: yellow;
+                       color: white;
+                       border: none;
+                       padding: 5px 10px;
+                       border-radius: 3px;
+                       cursor: pointer;
+                       `;
+
+                    removeButton.textContent = 'Remove';
+                    removeButton.style.backgroundColor = 'red';
+                    removeButton.style.color = 'white';
+                    removeButton.style.border = 'none';
+                    removeButton.style.padding = '5px 10px';
+                    removeButton.style.borderRadius = '3px';
+                    removeButton.style.cursor = 'pointer';
+
+                    // Create text node for the name
+                    const nameText = document.createTextNode(name);
+
+                    // Append elements in desired order
+                    li.appendChild(nameText);
+                    li.appendChild(updateButton);
+                    li.appendChild(removeButton);
+
                     ul.appendChild(li);
                 });
                 namesContainer.appendChild(ul);

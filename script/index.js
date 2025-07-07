@@ -6,7 +6,7 @@ document.getElementById('nameForm')
     const name = document.getElementById('nameInput').value;
 
     try {
-        const response = await fetch('http://localhost:8080/api/process-name', {
+        const response = await fetch('http://localhost:8080/api/names', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
