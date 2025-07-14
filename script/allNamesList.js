@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (namesList.length > 0) {
                 const ul = document.createElement('ul');
-                namesList.forEach(name => {
+                namesList.forEach((name, index) => {
                     const li = document.createElement('li');
                     const updateButton = document.createElement('button');
                     const removeButton = document.createElement('button');
@@ -53,6 +53,41 @@ document.addEventListener('DOMContentLoaded', async function () {
                     li.appendChild(removeButton);
 
                     ul.appendChild(li);
+
+                    // Add event listener for remove button
+                    removeButton.addEventListener("click", async function () {
+                        try {
+                            // Make DELETE request to server
+                            const deleteResponse = await fetch(`http://localhost:8080/api/names/${index}`, {
+                                method: 'DELETE',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                }
+                            });
+
+                            if (deleteResponse.ok) {
+                                // Remove the list item
+                                li.remove();
+
+                                // Update the count
+                                const remainingItems = ul.children.length;
+                                countElement.textContent = `There are ${remainingItems} names`;
+
+                                // If no names left, show "No names available"
+                                if (remainingItems === 0) {
+                                    namesContainer.innerHTML = '<h3>Names:</h3><p>No names available.</p>';
+                                }
+
+                                console.log(`Successfully removed: ${name}`);
+                            } else {
+                                console.error('Error removing name:', deleteResponse.status);
+                                alert(`Error removing name: ${deleteResponse.status}`);
+                            }
+                        } catch (error) {
+                            console.error('Error removing name:', error);
+                            alert('Error connecting to server while removing name');
+                        }
+                    });
                 });
                 namesContainer.appendChild(ul);
             } else {
