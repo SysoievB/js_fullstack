@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                             alert('Error connecting to server while removing name');
                         }
                     });
+
+                    updateButton.addEventListener('click', async function () {
+
+                    });
                 });
                 namesContainer.appendChild(ul);
             } else {
