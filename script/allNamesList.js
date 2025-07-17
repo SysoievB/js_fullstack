@@ -90,7 +90,19 @@ document.addEventListener('DOMContentLoaded', async function () {
                     });
 
                     updateButton.addEventListener('click', async function () {
+                        try {
+                            const updateResponse = await fetch(`http://localhost:8080/api/names/${index}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                params: {
+                                    name: newName
+                                }
+                            });
+                        } catch (error) {
 
+                        }
                     });
                 });
                 namesContainer.appendChild(ul);
