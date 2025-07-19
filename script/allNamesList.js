@@ -36,6 +36,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                        cursor: pointer;
                        `;
 
+                    //added functionality to the update button -> on click leads to another html page
+                    updateButton.addEventListener('click', async function() {
+                        // Store index in sessionStorage to pass to the next page
+                        sessionStorage.setItem('nameIndex', index);
+                        // Redirect to update page
+                        window.location.href = 'update.html';
+                    });
+
                     removeButton.textContent = 'Remove';
                     removeButton.style.backgroundColor = 'red';
                     removeButton.style.color = 'white';
@@ -86,22 +94,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                         } catch (error) {
                             console.error('Error removing name:', error);
                             alert('Error connecting to server while removing name');
-                        }
-                    });
-
-                    updateButton.addEventListener('click', async function () {
-                        try {
-                            const updateResponse = await fetch(`http://localhost:8080/api/names/${index}`, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                params: {
-                                    name: newName
-                                }
-                            });
-                        } catch (error) {
-
                         }
                     });
                 });
