@@ -28,3 +28,28 @@ document.getElementById('nameForm')
         alert('Error connecting to server');
     }
 });
+
+const checkbox = document.getElementById('activeCheckbox');
+const responseText = document.getElementById('responseSwitchFlagText');
+
+checkbox.addEventListener('change', async function () {
+    const isActive = checkbox.checked;
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/names/status?active=${isActive}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            responseText.textContent = await response.text();
+        } else {
+            responseText.textContent = "Failed to update status.";
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        responseText.textContent = "Server error occurred.";
+    }
+});
