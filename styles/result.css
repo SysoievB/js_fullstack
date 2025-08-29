@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url("allNames.css");
+
+body {
+    background-image: url("/images/nature.png");
+    background-size: cover;
+}
+
+#result-title {
+    display: flex;
+    color: var(--dark-blue);
+    font: var(--font-asimovian-style);
+    font-size: 40px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    font: var(--font-asimovian-style);
+    font-size: 25px;
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkolivegreen;
+}
+
+.result-success,
+.result-error {
+    display: flex;
+    color: var(--dark-blue);
+    font: var(--font-asimovian-style);
+    font-size: 40px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
