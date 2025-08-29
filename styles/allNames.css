@@ -52,3 +52,78 @@ body {
     align-items: center;
     justify-content: flex-end;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    background: #fafafa;
+    transition: background 0.2s ease;
+}
+
+.name-row:nth-child(even) {
+    background: #f0f0f9; /* zebra stripes */
+}
+
+.name-row:hover {
+    background: #e5e5ff;
+}
+
+.name-cell {
+    flex: 1;
+    font: var(--font-asimovian-style);
+    font-size: 18px;
+    color: var(--dark-blue);
+}
+
+.actions-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.update-btn {
+    background: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.update-btn:hover {
+    background: #e6b800;
+}
+
+.remove-btn {
+    background: #e60000;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.remove-btn:hover {
+    background: #b30000;
+}
+
+.actions-names {
+    color: var(--dark-blue);
+    font: var(--font-asimovian-style);
+    font-size: 35px;
+    margin-bottom: 0;
+}
