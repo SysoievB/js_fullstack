@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             const namesList = await response.json();
 
             // Update the count
-            const countElement = document.getElementsByClassName('countNames')[0];
+            const countElement = document.getElementsByClassName('count-names')[0];
             countElement.textContent = `There are ${namesList.length} names`;
 
             // Create and display the list of names

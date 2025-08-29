@@ -1,3 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+
+:root {
+    --dark-blue: #1d1160;
+    --font-asimovian-style: normal 400 1rem/1.5 "Asimovian", sans-serif;
+}
+
+body {
+    background-image: url("/images/names.png");
+}
+
 .names-title {
-    color: green;
+    display: flex;
+    color: var(--dark-blue);
+    font: var(--font-asimovian-style);
+    font-size: 40px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.count-names {
+    display: flex;
+    color: var(--dark-blue);
+    font: var(--font-asimovian-style);
+    font-size: 40px;
+    align-items: center;
+    justify-content: right;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* link on the left, count on the right */
+    padding: 0 20px; /* optional spacing */
+}
+
+.link__div a {
+    font: var(--font-asimovian-style);
+    font-size: 25px;
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.link__div a:hover {
+    color: darkolivegreen;
+}
+
+.count__div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
