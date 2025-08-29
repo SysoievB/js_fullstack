@@ -5,7 +5,7 @@ document.getElementById('nameForm')
 
         const name = document.getElementById('nameInput').value.trim();
 
-        if (name.trim() === "") {
+        if (name === "") {
             alert("Name cannot be blank!");
         }
 
